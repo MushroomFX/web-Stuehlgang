@@ -151,3 +151,36 @@ body {
 }
 
   </style>
+
+<script>
+  onmousemove = function (e) {
+  setTimeout(function () {
+    var c_movex = window.innerWidth / 2 - e.clientX;
+    var c_movey = window.innerHeight / 2 - e.clientY;
+    c_movex *= 0.1;
+    c_movey *= 0.1;
+    document.getElementById("mv").style.transform =
+      "translate(" + c_movex + "px, " + c_movey + "px)";
+  }, 16);
+};
+
+function back() {
+  window.location = window.location.hostname;
+}
+
+var counter = document.getElementsByClassName("count")[0];
+var counterog = counter.innerHTML * 1;
+counter.innerHTML = 0;
+var upCount = setInterval(function () {
+  console.log(counter.innerHTML);
+  if (counterog * 1 > counter.innerHTML * 1) {
+    var current = counter.innerHTML;
+    current *= 1;
+    current += 1;
+    counter.innerHTML = current;
+  } else {
+    clearInterval(upCount);
+  }
+}, 1);
+
+</script>
